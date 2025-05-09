@@ -19,5 +19,5 @@
 <div>
   <h1>{{hours()}}:{{minutes()}}:{{seconds()}}</h1>
   <button type="button" class="btn" (click)="countdown()">Começar</button>
-  <h2 hidden="visibility()">O tempo acabou!!!</h2>
+  <h2 [hidden]="visibility()">O tempo acabou!!!</h2>
 </div>

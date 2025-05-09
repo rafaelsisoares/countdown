@@ -11,7 +11,7 @@ export class CounterComponent {
   hours: WritableSignal<number> = signal(0);
   minutes: WritableSignal<number> = signal(0);
   seconds: WritableSignal<number> = signal(0);
-  visibility: WritableSignal<boolean> = signal(false);
+  visibility: WritableSignal<boolean> = signal(true);
 
   handleChange(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -20,11 +20,11 @@ export class CounterComponent {
   }
 
   countdown(): void {
-    this.visibility.set(false);
+    this.visibility.set(true);
     const interval = setInterval(() => {
-      if (this.hours() === 0 && this.minutes() === 0 && this.seconds() === 0) {
-        clearInterval(interval);
+      if (this.hours() === 0 && this.minutes() === 0 && this.seconds() === 1) {
         this.visibility.set(!this.visibility());
+        clearInterval(interval);
       }
       if (this.seconds() <= 0) {
         if (this.minutes() <= 0) {
