@@ -1,5 +1,4 @@
 import { Component, signal, WritableSignal } from '@angular/core';
-import { concatWith } from 'rxjs';
 
 @Component({
   selector: 'app-counter',
@@ -14,6 +13,7 @@ export class CounterComponent {
   seconds: WritableSignal<number> = signal(0);
   timeToggle: string = "segundos";
   visibility: WritableSignal<boolean> = signal(true);
+  isRunning: WritableSignal<boolean> = signal(false);
 
   handleChange(event: Event): void {
     const target = event.target as HTMLInputElement;
@@ -68,9 +68,11 @@ export class CounterComponent {
 
   countdown(): void {
     this.visibility.set(true);
+    this.isRunning.set(true);
     const interval = setInterval(() => {
       if (this.hours() === 0 && this.minutes() === 0 && this.seconds() === 1) {
         this.visibility.set(!this.visibility());
+        this.isRunning.set(!this.isRunning());
         clearInterval(interval);
       }
       if (this.seconds() <= 0) {

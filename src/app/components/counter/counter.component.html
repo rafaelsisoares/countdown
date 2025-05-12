@@ -25,18 +25,18 @@
     <label for="minutes">Minutos</label>
     <input type="radio" id="seconds" name="set_time" value="segundos" (click)="handleChangeTimeToggle($event)" [defaultChecked]="true">
     <label for="seconds">Segundos</label>
-    <button value="1" (click)="handleChange($event)">1</button>
-    <button value="2" (click)="handleChange($event)">2</button>
-    <button value="3" (click)="handleChange($event)">3</button>
-    <button value="4" (click)="handleChange($event)">4</button>
-    <button value="5" (click)="handleChange($event)">5</button>
-    <button value="6" (click)="handleChange($event)">6</button>
-    <button value="7" (click)="handleChange($event)">7</button>
-    <button value="8" (click)="handleChange($event)">8</button>
-    <button value="9" (click)="handleChange($event)">9</button>
+    <button value="1" (click)="handleChange($event)" [disabled]="isRunning()">1</button>
+    <button value="2" (click)="handleChange($event)" [disabled]="isRunning()">2</button>
+    <button value="3" (click)="handleChange($event)" [disabled]="isRunning()">3</button>
+    <button value="4" (click)="handleChange($event)" [disabled]="isRunning()">4</button>
+    <button value="5" (click)="handleChange($event)" [disabled]="isRunning()">5</button>
+    <button value="6" (click)="handleChange($event)" [disabled]="isRunning()">6</button>
+    <button value="7" (click)="handleChange($event)" [disabled]="isRunning()">7</button>
+    <button value="8" (click)="handleChange($event)" [disabled]="isRunning()">8</button>
+    <button value="9" (click)="handleChange($event)" [disabled]="isRunning()">9</button>
     <button (click)="reset()">Limpar</button>
-    <button value="0" (click)="handleChange($event)">0</button>
-    <button (click)="countdown()">Começar</button>
+    <button value="0" (click)="handleChange($event)" [disabled]="isRunning()">0</button>
+    <button (click)="countdown()" [disabled]="isRunning()">Começar</button>
   </div>
   <h2 [hidden]="visibility()">O tempo acabou!!!</h2>
 </div>
