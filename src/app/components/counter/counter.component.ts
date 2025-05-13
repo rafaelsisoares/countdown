@@ -61,8 +61,6 @@ export class CounterComponent {
 
   handleChangeTimeToggle(event: Event) {
     const target = event.target as HTMLInputElement;
-    console.log(target.value);
-
     this.timeToggle = target.value;
   }
 
